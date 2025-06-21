@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "unifi-sm-api"
+version = "0.1.0"
+description = "Python library for interacting with UniFi Site Manager API"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name="Jokob Sk", email="jokob.sk@gmail.com"}]
+dependencies = [
+    "requests >= 2.0",
+]
+requires-python = ">=3.8"
+
+[tool.setuptools.packages.find]
+where = ["unifi_sm_api"]
