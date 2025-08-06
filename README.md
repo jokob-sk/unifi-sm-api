@@ -57,3 +57,6 @@ Make sure PYTHONPATH includes the project root, then run:
 PYTHONPATH=.. pytest -s tests/test_api.py
 ```
 
+## 💙 Donations
+
+  | [![GitHub](https://i.imgur.com/emsRCPh.png)](https://github.com/sponsors/jokob-sk) | [![Buy Me A Coffee](https://i.imgur.com/pIM6YXL.png)](https://www.buymeacoffee.com/jokobsk) | [![Patreon](https://i.imgur.com/MuYsrq1.png)](https://www.patreon.com/user?u=84385063) | 
