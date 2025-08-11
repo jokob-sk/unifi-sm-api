@@ -1,8 +1,17 @@
 # UniFi Site Manager API Client
 
-Python interface for interacting with UniFi’s Site Manager Integration API. Tested on selfhosted local instance only.
+Python library for interacting with UniFi’s Site Manager Integration API. Tested on a selfhosted local instance only.
+
+> [!NOTE]
+> This library was mainly creted to be used with [NetAlertX](https://github.com/jokob-sk/NetAlertX), as such, full API coverage is not planned. PRs are however more than welcome.
 
 ## 📦 Usage
+
+Navigate to Site Manager _⚙️ Settings -> Control Plane -> Integrations_.
+
+- `api_key` : You can generate your API key under the _Your API Keys_ section.
+- `base_url` : You can find your base url in the _API Request Format_ section.
+- `version` : You can find your version as part of the url in the _API Request Format_ section.
 
 ```python
 from unifi_sm_api.api import SiteManagerAPI
@@ -15,8 +24,12 @@ api = SiteManagerAPI(
 )
 
 sites = api.get_sites()
-devices = api.get_unifi_devices(site_id="site-id")
-clients = api.get_clients(site_id="site-id")
+
+for site in sites:
+    site_id = site["id"]
+
+    unifi_devices = api.get_unifi_devices(site_id=site_id)
+    clients = api.get_clients(site_id=site_id)
 ```
 
 ---
@@ -36,7 +49,6 @@ clients = api.get_clients(site_id="site-id")
 
 ---
 
-
 ## Testing
 
 ### 🌍 Environment Setup
@@ -54,9 +66,12 @@ VERIFY_SSL=False
 Make sure PYTHONPATH includes the project root, then run:
 
 ```bash
+cd unifi-sm-api/tests
 PYTHONPATH=.. pytest -s tests/test_api.py
 ```
 
 ## 💙 Donations
 
-  | [![GitHub](https://i.imgur.com/emsRCPh.png)](https://github.com/sponsors/jokob-sk) | [![Buy Me A Coffee](https://i.imgur.com/pIM6YXL.png)](https://www.buymeacoffee.com/jokobsk) | [![Patreon](https://i.imgur.com/MuYsrq1.png)](https://www.patreon.com/user?u=84385063) | 
+- [GitHub](https://github.com/sponsors/jokob-sk)
+- [Buy Me A Coffee](https://www.buymeacoffee.com/jokobsk) 
+- [Patreon](https://www.patreon.com/user?u=84385063) 

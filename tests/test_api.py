@@ -28,12 +28,12 @@ def test_init_devices_and_clients_all_sites():
         logging.info(f"\n--- Site: {site_name} ({site_id}) ---")
 
         # --- Devices ---
-        devices = api.get_unifi_devices(site_id)
-        assert isinstance(devices, (list, dict)), f"Devices response for site {site_id} should be list or dict"
+        unifi_devices = api.get_unifi_devices(site_id)
+        assert isinstance(unifi_devices, (list, dict)), f"Devices response for site {site_id} should be list or dict"
 
         print(f"\nDevices for {site_name} ({site_id}):")
-        print(json.dumps(devices, indent=2))
-        logging.info(json.dumps(devices, indent=2))
+        print(json.dumps(unifi_devices, indent=2))
+        logging.info(json.dumps(unifi_devices, indent=2))
 
         # --- Clients ---
         clients = api.get_clients(site_id)
